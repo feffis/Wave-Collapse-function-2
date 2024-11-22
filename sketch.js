@@ -1,10 +1,10 @@
 const celdas = [];
-const RETICULA = 28;
+const RETICULA = 24;
 let ancho;
 let alto;
 
 const azulejos = [];
-const NA = 11; // número de azulejos
+const NA = 12; // número de azulejos
 
 const reglas = [
   //Reglas de los bordes de cada azulejo
@@ -148,7 +148,7 @@ function draw() {
       }
     }
 
-    // Actualizar las opciones de las celdas vecinas
+    // Celdas seleccionadas
     for (let x = 0; x < RETICULA; x++) {
       for (let y = 0; y < RETICULA; y++) {
         const celdaIndex = x + y * RETICULA;
@@ -199,4 +199,13 @@ function draw() {
   } else {
     noLoop();
   }
+}
+function cambiarDireccion(_celda, _regla, _opuesto) {
+  const nuevasOpciones = [];
+  for (let i = 0; i < _celda.opciones.length; i++) {
+    if (_regla == reglas[_celda.opciones[i]][_opuesto]) {
+      nuevasOpciones.push(_celda.opciones[i]);
+    }
+  }
+  _celda.opciones = nuevasOpciones;
 }
