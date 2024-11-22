@@ -4,7 +4,7 @@ let ancho;
 let alto;
 
 const azulejos = [];
-const NA = 12; // número de azulejos
+const NA = 10; // número de azulejos
 
 const reglas = [
   //Reglas de los bordes de cada azulejo
